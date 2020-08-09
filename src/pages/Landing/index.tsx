@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { View, Image, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
-
-import styles from "./styles";
 
 import landingImg from "../../assets/images/landing.png";
 import studyIcon from "../../assets/images/icons/study.png";
 import heartIcon from "../../assets/images/icons/heart.png";
 import giveClassesIcon from "../../assets/images/icons/give-classes.png";
 
-const Landing: React.FC = () => {
+import styles from "./styles";
 
+const Landing: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  function handleNavigateToGiveClassesPage() {
+    navigate("GiveClasses");
+  }
+
+  function handleNavigateToStudyPages() {
+    navigate("Study");
+  }
 
   return (
     <View style={styles.container}>
@@ -23,7 +32,7 @@ const Landing: React.FC = () => {
 
       <View style={styles.buttonsContainer}>
         <RectButton
-          onPress={null}
+          onPress={handleNavigateToStudyPages}
           style={[styles.button, styles.buttonPrimary]}
         >
           <Image source={studyIcon} />
@@ -32,7 +41,7 @@ const Landing: React.FC = () => {
         </RectButton>
 
         <RectButton
-          onPress={null}
+          onPress={handleNavigateToGiveClassesPage}
           style={[styles.button, styles.buttonSecondary]}
         >
           <Image source={giveClassesIcon} />
@@ -42,8 +51,7 @@ const Landing: React.FC = () => {
       </View>
 
       <Text style={styles.totalConnections}>
-        Total de 100 conexões já realizadas{" "}
-        <Image source={heartIcon} />
+        Total de 100 conexões já realizadas <Image source={heartIcon} />
       </Text>
     </View>
   );
