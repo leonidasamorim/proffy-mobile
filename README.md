@@ -62,6 +62,6 @@ $ yarn android
 
 ## :heavy_check_mark: License 
 
-This project is under the MIT license. See the [LICENSE]() file for more details.
+This project is under the MIT license. See the [LICENSE](https://opensource.org/licenses/MIT) file for more details.
 
 ---
